@@ -70,52 +70,20 @@ document.addEventListener('DOMContentLoaded', () => {
 const chatBox = document.getElementById('chat-box');
 const chatForm = document.getElementById('chat-form');
 const userInput = document.getElementById('user-input');
-// This array will hold the entire conversation
-let chatHistory = [];
 let currentGameContext = 'a video game'; // Default context
-
-// --- Function to SAVE chat history to localStorage ---
-function saveChatHistory() {
-    // localStorage can only store strings, so we convert our array to a JSON string
-    localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
-}
-
-// --- Function to LOAD chat history from localStorage ---
-function loadChatHistory() {
-    const savedHistory = localStorage.getItem('chatHistory');
-    
-    if (savedHistory) {
-        // If history exists, convert it back from a string to an array
-        chatHistory = JSON.parse(savedHistory);
-        // Display each message from the loaded history
-        chatHistory.forEach(message => {
-            // We pass false to prevent re-saving what we just loaded
-            addMessage(message.text, message.role, false); 
-        });
-    } else {
-        // If no history, add the initial bot message
-        const initialBotMessage = 'Hark, weary traveler. What troubles thy soul, that thou wouldst seek counsel from one such as I?';
-        addMessage(initialBotMessage, 'bot-message');
-    }
-}
 
 // Function to update the current game context
 function setGameContext(gameName) {
-    if (!gameName) {
-        currentGameContext = 'video games in general';
-    } else {
-        currentGameContext = gameName;
-    }
+    currentGameContext = gameName;
+    const botMessage = `Hello! I'm now an expert on ${gameName}. Ask me anything!`;
+    // Clear chat and add new context message, or just update a status.
+    // For simplicity, let's just update the context variable silently.
     console.log(`Chat context set to: ${currentGameContext}`);
 }
 
-/**
- * A function to add a new message to the chatbox.
- * @param {string} text - The text of the message.
- * @param {string} className - The CSS class for the message ('user-message' or 'bot-message').
- * @param {boolean} save - Whether to save the message to history. Defaults to true.
- */
-function addMessage(text, className, save = true) {
+// Function to add a message to the chatbox
+function addMessage(text, className) {
+    // Remove any "typing" indicator first
     const typingIndicator = document.querySelector('.typing-indicator');
     if (typingIndicator) {
         typingIndicator.remove();
@@ -123,16 +91,9 @@ function addMessage(text, className, save = true) {
 
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', className);
-    messageElement.innerHTML = marked.parse(text); 
-    
+    messageElement.innerHTML = marked.parse(text);
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight;
-
-    // Add the message to our history array and save it
-    if (save) {
-        chatHistory.push({ role: className, text: text });
-        saveChatHistory();
-    }
 }
 
 // Show a "typing..." indicator for better UX
@@ -152,12 +113,13 @@ chatForm.addEventListener('submit', async function(event) {
 
     if (userMessage === '') return;
 
-    // Add user's message to the UI
+    // 1. Add user's message to the UI immediately
     addMessage(userMessage, 'user-message');
     userInput.value = '';
     showTypingIndicator();
 
     try {
+        // 2. Send the message and context to our secure serverless function
         const response = await fetch('/.netlify/functions/getAiResponse', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -174,18 +136,11 @@ chatForm.addEventListener('submit', async function(event) {
         const data = await response.json();
         const aiResponse = data.response;
 
-        // Add the AI's response to the UI
+        // 3. Add the AI's response to the UI
         addMessage(aiResponse, 'bot-message');
 
     } catch (error) {
         console.error("Error getting AI response:", error);
         addMessage("Sorry, I'm having trouble connecting to the AI right now.", 'bot-message');
     }
-});
-
-// --- Load the chat history when the page loads ---
-// We need to wait for the slider logic to set the initial game context
-document.addEventListener('DOMContentLoaded', () => {
-    // A small delay to ensure the slider's initial context is set
-    setTimeout(loadChatHistory, 100); 
 });
