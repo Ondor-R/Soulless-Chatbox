@@ -24,7 +24,7 @@ This repo is a way for me to learn how to create a chatbox in a website.
 
 * Hollow Knight: Silksong (Not yet function as AI still thought Silksong hasn't been release yet.)
 
-The entire project is deployed and hosted on Netlify. It uses **Netlify** Functions to run server-side code in a secure, serverless environment. This function acts as a proxy to protect the secret API key.
+The entire project is deployed and hosted on **Netlify**. It uses Netlify Functions to run server-side code in a secure, serverless environment. This function acts as a proxy to protect the secret API key.
 
 The conversational intelligence is provided by the Google **Gemini API** (gemini-2.5-flash model), which processes user questions and the game context to generate expert answers.
 
