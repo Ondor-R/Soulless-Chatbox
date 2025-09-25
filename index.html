@@ -8,70 +8,69 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
-    <div class="app-container">
+    <main class="content-wrapper">
+        <section class="card-section">
+            <h2>Choose thine souls' game</h2>
+            <div class="slider-container">
+                <div class="slider-track">
 
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <button id="new-chat-btn"> + New Chat</button>
-            </div>
-            <nav class="chat-nav">
-                <ul class="chat-list" id="chat-list">
-                    </ul>
-            </nav>
-        </aside>
-
-        <main class="main-content">
-            <div class="content-wrapper">
-                <section class="card-section">
-                    <h2>Choose thine souls' game</h2>
-                    <div class="slider-container">
-                        <div class="slider-track">
-                            <div class="card" data-game="Dark Souls 1">
-                                <img src="img/ds1.jpg" alt="Dark Souls 1">
-                            </div>
-                            <div class="card" data-game="Dark Souls 2">
-                                <img src="img/ds2.jpg" alt="The greatest Dark Souls of all time">
-                            </div>
-                            <div class="card" data-game="Dark Souls 3">
-                                <img src="img/ds3.jpg" alt="Dark Souls 3">
-                            </div>
-                            <div class="card" data-game="Bloodborne">
-                                <img src="img/bb.jpg" alt="Bloodborne">
-                            </div>
-                            <div class="card" data-game="Elden Ring">
-                                <img src="img/er.jpg" alt="Elden Ring">
-                            </div>
-                            <div class="card" data-game="Sekiro">
-                                <img src="img/sekiro.jpg" alt="Sekiro">
-                            </div>
-                            <div class="card" data-game="Demon's Souls">
-                                <img src="img/ds.jpg" alt="Demon's Souls">
-                            </div>
-                            <div class="card" data-game="Hollow Knight">
-                                <img src="img/hk.jpg" alt="Hollow Knight">
-                            </div>
-                            <div class="card" data-game="Hollow Knight: Silksong">
-                                <img src="img/hks.jpg" alt="Silksong">
-                            </div>
-                        </div>
-                        <button class="arrow left-arrow" id="prevBtn">></button>
-                        <button class="arrow right-arrow" id="nextBtn">></button>
+                    <div class="card" data-game="Dark Souls 1">
+                        <img src="img/ds1.jpg" alt="Dark Souls 1">
                     </div>
-                </section>
-                <section class="chat-section">
-                    <div class="chat-container">
-                        <div class="chat-box" id="chat-box">
-                            </div>
-                        <form class="chat-form" id="chat-form">
-                            <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
-                            <button type="submit">Send</button>
-                        </form>
-                    </div>
-                </section>
-            </div>
-        </main>
-    </div>
 
+                    <div class="card" data-game="Dark Souls 2">
+                        <img src="img/ds2.jpg" alt="The greatest Dark Souls of all time">
+                    </div>
+
+                    <div class="card" data-game="Dark Souls 3">
+                        <img src="img/ds3.jpg" alt="Dark Souls 3">
+                    </div>
+
+                    <div class="card" data-game="Bloodborne">
+                        <img src="img/bb.jpg" alt="Bloodborne">
+                    </div>
+
+                    <div class="card" data-game="Elden Ring">
+                        <img src="img/er.jpg" alt="Elden Ring">
+                    </div>
+
+                    <div class="card" data-game="Sekiro">
+                        <img src="img/sekiro.jpg" alt="Sekiro">
+                    </div>
+
+                    <div class="card" data-game="Demon's Souls">
+                        <img src="img/ds.jpg" alt="Demon's Souls">
+                    </div>
+
+                    <div class="card" data-game="Hollow Knight">
+                        <img src="img/hk.jpg" alt="Hollow Knight">
+                    </div>
+
+                    <div class="card" data-game="Hollow Knight: Silksong">
+                        <img src="img/hks.jpg" alt="Silksong">
+                    </div>
+
+                </div>
+
+                <button class="arrow left-arrow" id="prevBtn">></button>
+                <button class="arrow right-arrow" id="nextBtn">></button>
+            </div>
+        </section>
+        <section class="chat-section">
+            <div class="chat-container">
+                <div class="chat-box" id="chat-box">
+                    <div class="message bot-message">
+                        Hark, weary traveler. What troubles thy soul, that thou wouldst seek counsel from one such as I?
+                    </div>
+                </div>
+                <form class="chat-form" id="chat-form">
+                    <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </section>
+            
+    </main>
     <script src="scripts.js"></script>
 </body>
 </html>
