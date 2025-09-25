@@ -91,7 +91,7 @@ function addMessage(text, className) {
 
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', className);
-    messageElement.innerHTML = text;
+    messageElement.innerHTML = marked.parse(text);
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
@@ -100,7 +100,7 @@ function addMessage(text, className) {
 function showTypingIndicator() {
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', 'bot-message', 'typing-indicator');
-    messageElement.innerHTML = '...';
+    messageElement.textContent = '...';
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
