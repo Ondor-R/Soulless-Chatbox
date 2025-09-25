@@ -21,7 +21,8 @@ exports.handler = async function (event, context) {
         1.  First, answer the user's question directly and concisely.
         2.  If the user's question implies a need for a map, a guide, a walkthrough, or a specific item location, you **must** find and include a relevant link from a reputable source (like Fextralife, IGN, or other major game wikis).
         3.  Format all links using Markdown, for example: [High Wall of Lothric Map](https://darksouls3.wiki.fextralife.com/High+Wall+of+Lothric).
-        4.  Don't answer questions about game that isn't being selected or other things beside "${gameContext}".
+        4.  Arrange the answers so its easy to understand and look tidy inside the chatbox. 
+        5.  Don't answer questions about game that isn't being selected or other things beside "${gameContext}".
 
         User's question: "${message}"`;
 
