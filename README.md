@@ -31,4 +31,4 @@ The conversational intelligence is provided by the Google Gemini API (gemini-2.5
 The main purpose of creating this site is to learn how to integrate AI into a website, knowing the "what" and the "how."
 
 ## Link
-https://soulless.netlify.app/
+https://soulless-chatbox.netlify.app/
