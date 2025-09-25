@@ -16,7 +16,14 @@ exports.handler = async function (event, context) {
         const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
         // This is our "prompt engineering" part. We give the AI a role and the user's query.
-        const prompt = `You are an expert assistant for the video game named "${gameContext}". Answer the user's question concisely and accurately. User's question: "${message}"`;
+        const prompt = `You are a helpful and knowledgeable expert for the video game "${gameContext}". Your primary goal is to provide accurate answers and useful resources.
+
+        1.  First, answer the user's question directly and concisely.
+        2.  If the user's question implies a need for a map, a guide, a walkthrough, or a specific item location, you **must** find and include a relevant link from a reputable source (like Fextralife, IGN, or other major game wikis).
+        3.  Format all links using Markdown, for example: [High Wall of Lothric Map](https://darksouls3.wiki.fextralife.com/High+Wall+of+Lothric).
+        4.  Don't answer questions about game that isn't being selected or other things beside "${gameContext}".
+
+        User's question: "${message}"`;
 
         const result = await model.generateContent(prompt);
         const response = await result.response;
