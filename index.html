@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="content-wrapper">
+        <section class="card-section">
+            <h2>Image Gallery</h2>
+            <div class="slider-container">
+                <div class="slider-track">
+
+                    <div class="card">
+                        <img src="img/ds1.jpg" data-game="Dark Souls 1" alt="Red placeholder image">
+                    </div>
+
+                    <div class="card">
+                        <img src="img/ds2.jpg" data-game="Dark Souls 2" alt="Blue placeholder image">
+                    </div>
+
+                    <div class="card">
+                        <img src="img/ds3.jpg" data-game="Dark Souls 3" alt="Green placeholder image">
+                    </div>
+
+                    <div class="card">
+                        <img src="https://via.placeholder.com/400x300/f97316/ffffff?text=Image+4" alt="Orange placeholder image">
+                    </div>
+
+                </div>
+
+                <button class="arrow left-arrow" id="prevBtn">></button>
+                <button class="arrow right-arrow" id="nextBtn">></button>
+            </div>
+        </section>
+        <section class="chat-section">
+            <div class="chat-container">
+                <div class="chat-box" id="chat-box">
+                    <div class="message bot-message">
+                        Hello! How can I help you today?
+                    </div>
+                </div>
+                <form class="chat-form" id="chat-form">
+                    <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </section>
+            
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>

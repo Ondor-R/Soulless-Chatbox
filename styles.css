@@ -1,0 +1,193 @@
+/* Universal rule to prevent padding/border from affecting element width */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #00474f;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex; /* Helps center the whole section if needed */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center;    /* Center them horizontally */
+    gap: 50px;              /* Add 50px of space between slider and chatbox */
+    width: 100%;
+}
+
+.card-section {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #f0f4f8;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 500px;
+    margin: auto;
+    overflow: hidden;
+    background-color: #002329;
+}
+
+.slider-track {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    height: 100%;
+    /* Remove any default browser padding/margin */
+    padding: 0;
+    margin: 0; 
+    transition: transform 0.5s ease;
+}
+
+.card {
+    min-width: 400px;
+    height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transform: scale(0.8);
+    opacity: 0.5;
+    transition: all 0.5s ease;
+}
+
+.card.current-image {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.arrow:hover {
+    background-color: white;
+}
+
+.left-arrow { left: 20px; transform: rotate(180deg);}
+.right-arrow { right: 20px; }
+
+.arrow:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+
+/*------------------------------------------------------------------*/
+.chat-section {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    height: 500px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* The area where messages are displayed */
+.chat-box {
+    flex-grow: 1; /* Allows this area to grow and fill available space */
+    padding: 15px;
+    overflow-y: auto; /* Adds a scrollbar if messages overflow */
+    background-color: #002329;
+    border-bottom: 1px solid #ddd;
+}
+
+/* General styling for all messages */
+.message {
+    padding: 8px 12px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+    max-width: 70%;
+    line-height: 1.4;
+}
+
+/* Styling specifically for bot messages */
+.bot-message {
+    background-color: #e5e5ea;
+    color: #000;
+    align-self: flex-start; /* Aligns to the left */
+}
+
+/* Styling specifically for user messages */
+.user-message {
+    background-color: #007bff;
+    color: #fff;
+    align-self: flex-end; /* Aligns to the right */
+    margin-left: auto; /* Pushes the bubble to the right */
+}
+
+/* The form for typing messages */
+.chat-form {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+}
+
+/* The text input field */
+.chat-form input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 10px;
+    outline: none; /* Removes the default browser outline on focus */
+}
+
+/* The send button */
+.chat-form button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    font-weight: bold;
+}
+
+/* Style for the button on hover */
+.chat-form button:hover {
+    background-color: #0056b3;
+}
