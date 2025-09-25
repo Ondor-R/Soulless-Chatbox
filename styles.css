@@ -5,9 +5,8 @@
 
 body {
     font-family: sans-serif;
-    background-color: #00474f;
+    background-color: #03343a;
     margin: 0;
-    padding: 40px 20px;
     display: flex; /* Helps center the whole section if needed */
     justify-content: center;
     align-items: center;
@@ -29,9 +28,18 @@ body {
 }
 
 h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
     color: #f0f4f8;
+    text-shadow: 0 0 5px #f0f4f8;
+    font-family: 'EB Garamond';
+}
+
+.desc {
+    font-size: 1.5rem;
+    color: #f0f4f8;
+    text-shadow: 0 0 3px #f0f4f8;
+    font-family: 'EB Garamond';
 }
 
 .slider-container {
@@ -42,6 +50,7 @@ h2 {
     margin: auto;
     overflow: hidden;
     background-color: #002329;
+    box-shadow: inset 0 0 10px black;
 }
 
 .slider-track {
@@ -132,6 +141,7 @@ h2 {
     overflow-y: auto; /* Adds a scrollbar if messages overflow */
     background-color: #002329;
     border-bottom: 1px solid #ddd;
+    box-shadow: inset 0 0 10px black;
 }
 
 /* General styling for all messages */
@@ -152,7 +162,7 @@ h2 {
 
 /* Styling specifically for user messages */
 .user-message {
-    background-color: #007bff;
+    background-color: #ff6207;
     color: #fff;
     align-self: flex-end; /* Aligns to the right */
     margin-left: auto; /* Pushes the bubble to the right */
@@ -180,22 +190,23 @@ h2 {
 .chat-form button {
     padding: 10px 20px;
     border: none;
-    background-color: #007bff;
+    background-color: #ff6207;
     color: white;
     border-radius: 20px;
     cursor: pointer; /* Changes the cursor to a pointer on hover */
     font-weight: bold;
+    transition: all 0.3s ease;
 }
 
 /* Style for the button on hover */
 .chat-form button:hover {
-    background-color: #0056b3;
+    background-color: #b30000;
 }
 
 #delete-chat-btn {
     position: absolute;
     top: 15px;
-    right: 15px;
+    right: 20px;
     z-index: 10; /* Ensures it's on top of the chat messages */
     background: none;
     border: none;
