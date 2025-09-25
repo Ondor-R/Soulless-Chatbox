@@ -13,7 +13,7 @@ exports.handler = async function (event, context) {
         const { message, context: gameContext } = JSON.parse(event.body);
 
         // For text-only input, use the gemini-pro model
-        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
         // This is our "prompt engineering" part. We give the AI a role and the user's query.
         const prompt = `You are an expert assistant for the video game named "${gameContext}". Answer the user's question concisely and accurately. User's question: "${message}"`;
